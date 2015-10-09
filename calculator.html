@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Combinatorial Game Theory Calculator</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Combinatorial Game Theory Calculator</h1>
+    <textarea id="output" readonly rows=7 cols=80>Welcome!</textarea>
+    <form onsubmit="doCalc();return false;">
+      <input type="text" id="input" size=80 value="" autofocus><br>
+      <div class="grid">
+      <input type="button" value="Calculate" onclick="doCalc();">
+      <input type="button" class="bigger" value="&#x2191;" onclick="doUp();">
+      <input type="button" class="bigger" value="&#x2193;" onclick="doDown();">
+      </div>
+    </form>
+    <script type="text/javascript" src="cgt.js"></script>    
+    <script type="text/javascript" src="parser.js"></script>    
+    <script type="text/javascript" src="main.js"></script>    
+  </body>
+</html>

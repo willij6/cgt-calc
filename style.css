@@ -1,0 +1,26 @@
+body {
+    color: green;
+    
+}
+input[type="button"] {
+    width: 11.5%;
+    height: 12%;
+    font-size: 15px;
+}
+
+input[type="text"], textarea {
+    font-size: 17px;
+}
+
+div.grid {
+    width: 50em;
+    /* background-color: red; */
+}
+
+div.grid input.bigger {
+    font-size: 25px;
+}
+
+/* div.grid input { */
+/*     margin: auto; */
+/* } */

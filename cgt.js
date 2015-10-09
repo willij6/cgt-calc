@@ -153,18 +153,20 @@ function remove_reversibles(g) {
 
 
 function neg(index) {
-    g = games[index];
+    var g = games[index];
     var ell = [];
     var arr = [];
     for(var i = 0; i < g.left.length; i++)
 	arr.push(neg(g.left[i].index));
     for(var i = 0; i < g.right.length; i++)
 	ell.push(neg(g.right[i].index));
+    // console.log(ell);
+    // console.log(arr);
     return get_game(ell,arr);
 }
 
 function plus(g,h) {
-    //console.log("adding games " + g + " and " + h + " together.");
+    // console.log("adding games " + g + " and " + h + " together.");
     g = games[g];
     h = games[h];
     //console.log(g);
@@ -189,27 +191,22 @@ function plus(g,h) {
 
 
 
-names = {};
-zero = get_game([],[]);
-console.log("Zero is " + zero);
-names[zero] = '0';
-star = get_game([zero],[zero]);
-console.log("Star is " + star);
-names[star] = '*';
-one = get_game([zero],[]);
-console.log("One is " + one);
-names[one] = '1';
-up = get_game([zero],[star]);
-console.log("Up is " + up);
+namesToValues = {};
+valuesToNames = {};
+
+function bind(name,value) {
+    namesToValues[name] = value;
+    valuesToNames[value] = name;
+}
 
 
 
 
-
+// takes the index of g
 function display(g) {
     //console.log("trying to display " + g);
-    if(names[g]) {
-	return names[g];
+    if(g in valuesToNames) {
+	return valuesToNames[g];
     }
     g = games[g];
     var s = "{";
@@ -232,5 +229,28 @@ function display(g) {
     return s;
 }
 
-console.log(games[plus(up,up)]);
-console.log(display(plus(up,up)));
+function forceDisplay(g) {
+    g = games[g];
+    var s = "{";
+    if(g.left.length > 0) {
+	for(var i = 0; i < g.left.length; i++) {
+	    if(i > 0)
+		s += ", ";
+	    s += display(g.left[i].index);
+	}
+    }
+    s += "|";
+    if(g.right.length > 0) {
+	for(var i = 0; i < g.right.length; i++) {
+	    if(i > 0)
+		s += ", ";
+	    s += display(g.right[i].index);
+	}
+    }
+    s += "}";
+    return s;
+}
+
+
+// console.log(games[plus(up,up)]);
+// console.log(display(plus(up,up)));
