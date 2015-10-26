@@ -13,9 +13,11 @@ function doCalc() {
 
 function doUp() {
     inp.value += "\u2191";
+    inp.focus();
 }
 
 function doDown() {
     inp.value += "\u2193";
+    inp.focus();
 }
     
