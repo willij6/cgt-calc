@@ -45,12 +45,13 @@ To compare two games, separate them with ?
     up || *
 
 The following special syntaxes are supported:
+
 * `{A,B,C}` for impartial games.  For instance,
 
-    >> * = {0}
-    >> *2 = {0,*}
-    >> *3 = {0,*,*2}
-    >> pm1 = {1,-1}
+        >> star = {0}
+        >> *2 = {0,star}
+        >> *3 = {0,star,*2}
+        >> pm1 = {1,-1}
 
 * Syntax like `{1||2|3}` for {1|{2|3}}.
 
@@ -58,6 +59,7 @@ Bug: when unknown variables are used inside an expression,
 they are interpreted as zero:
 
     >> {asdf|}
+    {0|}
 
 ## Features
 Currently, the only things implemented are a parser, and a very basic
