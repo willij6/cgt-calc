@@ -208,6 +208,10 @@ function display(g) {
     if(g in valuesToNames) {
 	return valuesToNames[g];
     }
+    ng = neg(g);
+    if(ng in valuesToNames) {
+    	return "-" + valuesToNames[ng];
+    }
     g = games[g];
     var s = "{";
     if(g.left.length > 0) {

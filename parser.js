@@ -376,6 +376,13 @@ function calculate(input) {
 		return forceDisplay(namesToValues[data]);
 	    return "Error: unrecognized variable " + data;
 	}
+	if(data.type == "neg" && data.value.type == "atom") {
+	    data = data.value.value;
+	    if(data in namesToValues)
+		return forceDisplay(neg(namesToValues[data]));
+	    return "Error: unrecognized variable " + data;
+	}
+	    
 	data = toGame(data);
 	return display(data);
 	
@@ -389,5 +396,22 @@ function calculate(input) {
 
 calculate("0 = {|}");
 calculate("1 = {0|}");
-calculate("1+1");
+calculate("* = {0}");
+calculate("2 = 1+1");
+calculate("3 = 1+2");
+calculate("*2 = {0,*}");
+calculate("4=2+2");
+calculate("1/2 = {0|1}");
+calculate("3/2 = {1|2}");
+calculate("1/4 = {0|1/2}");
+calculate("3/4 = 1/4+1/2");
+calculate("1/8 = {0|1/4}");
+calculate("3/8 = 1/8+1/4");
+calculate("5/8 = 1/2+1/8");
+calculate("7/8 = 1-1/8");
+calculate("\u2191 = {0|*}");
+calculate("\u2193 = -\u2191");
+calculate("\u2191* = \u2191+*");
+calculate("\u2193* = \u2193+*");
+
 

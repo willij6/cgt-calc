@@ -12,13 +12,13 @@ them.  Variables can be assigned by writing things like
     >> x = {0| }
     >> y = {0|}-{1|x}
 
-Currently, the calculator only knows about 0, 1, so you must manually
-add things like *, 2, and so on:
+Currently, the calculator only knows about 0, 1, and a few
+other games, so you must manually
+add things like *3, 5, and so on:
 
-    >> * = {0|0}
-    >> 2 = {0|}
-    >> 3 = 1+2
-    >> up = {0|*}
+    >> *3 = {0,*,*2|0,*,*2}
+    >> 5 = 2+3
+    >> doubleup = {0|*} + {0|*}
 
 Values are output in canonical form.  When possible, the output is
 described using values that have been named:
